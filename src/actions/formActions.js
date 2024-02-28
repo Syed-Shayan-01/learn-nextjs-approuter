@@ -8,7 +8,7 @@ export const submitContact = async (data) => {
         await connect();
         const myData = await Auth.create(data);
         return { message: 'User created successfully', myData };
-    } catch (error) {
+    }catch(error){
         console.error(error)
     }
 }
