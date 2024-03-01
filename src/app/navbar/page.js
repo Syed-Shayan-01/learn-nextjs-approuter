@@ -1,9 +1,9 @@
 'use client'
-import Image from 'next/image';
+import List from '@/components/list/List';
 import Link from 'next/link';
 import { useState } from 'react';
 import { AiFillCloseCircle, AiOutlineMenu } from 'react-icons/ai'
-const Home = () => {
+const Navbar = () => {
     const [isOpen, setIsOpen] = useState(null)
     return (
         <nav className="flex items-center  bg-[#f9f2d0] justify-between flex-wrap p-6">
@@ -38,18 +38,14 @@ const Home = () => {
                 className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"
                     }`}
             >
-                <div className="flex  text-black max-md:flex-col lg:flex-grow" >
-                    <ul>
-                        <li>Home</li>
-                        <li>Home</li>
-                        {/* remaining work  */}
-                    </ul>
+                <div className='inline-flex  lg:flex-grow' >
+                    <List />
                 </div>
 
-                <span ><button>Sign Out</button></span>
-
                 <Link href={'/form/login'}>
-                    <button>Login</button>
+                    <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10  bg-yellow-600 text-white px-6 py-2 rounded-full">
+                        Login
+                    </button>
                 </Link>
 
             </div>
@@ -57,4 +53,4 @@ const Home = () => {
     );
 }
 
-export default Home
+export default Navbar
