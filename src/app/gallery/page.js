@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react";
 import Navbar from "../navbar/page"
+import PageName from "@/components/pageName/PageName";
 
 const page = () => {
     const [fullImageSrc, setFullImageSrc] = useState(null);
@@ -18,9 +19,7 @@ const page = () => {
             <div>
                 <Navbar />
             </div>
-            <div className="p-10 text-center text-[2.5rem] font-bold">
-                Image Gallery
-            </div>
+            <PageName pageNameText={'Image Gallery'} />
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 p-12">
                 <div>
                     <img class="h-auto max-w-full rounded-lg" onClick={() => displayFullImage('https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg')} src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="" />
