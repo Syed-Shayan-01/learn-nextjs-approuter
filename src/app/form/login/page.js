@@ -1,6 +1,8 @@
+'use client'
 import Link from "next/link"
 
 const Login = () => {
+
     return (
         <div className="flex h-screen bg-[#fef7d7] items-center justify-center">
             <div className="bg-white p-8 rounded-2xl shadow-xl w-96">
@@ -33,7 +35,8 @@ const Login = () => {
                             Forgot password?
                         </Link>
                     </div>
-                    <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 w-full bg-yellow-600 text-white px-4 py-2 rounded-lg">
+                    {/* <div>{errorMessage && <p>{errorMessage}</p>}</div> */}
+                    <button type="submit" className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 w-full bg-yellow-600 text-white px-4 py-2 rounded-lg">
                         Login
                     </button>
                 </form>
@@ -49,3 +52,4 @@ const Login = () => {
 }
 
 export default Login;
+
