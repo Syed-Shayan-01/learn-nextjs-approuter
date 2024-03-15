@@ -18,10 +18,9 @@ const Signup = () => {
                 email,
                 password,
             });
-            console.log(res);
             if (res.status === 201) {
                 setError("Signup Successfuly");
-                router.replace('/form/login')
+                router.replace('/login')
             }
 
             if (res.status === 400) {
