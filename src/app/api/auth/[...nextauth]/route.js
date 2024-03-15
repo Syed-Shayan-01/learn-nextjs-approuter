@@ -4,9 +4,7 @@ import NextAuth from "next-auth"
 export const authOptions = {
     providers: [
         CredentialsProvider({
-            // The name to display on the sign in form (e.g. "Sign in with...")
             name: "Credentials",
-
             credentials: {
                 email: { label: "Email", type: "text" },
                 password: { label: "Password", type: "password" }
@@ -19,10 +17,10 @@ export const authOptions = {
                 } else {
                     return null
                 }
-
             }
         })
     ]
 }
 
-export default NextAuth(authOptions)
+export default handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };

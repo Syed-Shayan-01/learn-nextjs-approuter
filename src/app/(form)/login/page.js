@@ -1,7 +1,16 @@
 'use client'
 import Link from "next/link"
+import { useState } from "react";
+import { signIn } from "next-auth/react";
 
 const Login = () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const email = e.target[1].value;
+        const password = e.target[2].value;
+        const data = await signIn('credentials', { redirect: false, email, password });
+
+    }
 
     return (
         <div className="flex h-screen bg-[#fef7d7] items-center justify-center">
@@ -15,7 +24,7 @@ const Login = () => {
                         Signup
                     </Link>
                 </div>
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                         <input
                             className="flex h-10 border-input bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full px-4 py-2 border rounded-lg"
