@@ -1,10 +1,15 @@
 'use client'
 import List from '@/components/list/List';
+import { deleteCookie, getCookie } from 'cookies-next';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiFillCloseCircle, AiOutlineMenu } from 'react-icons/ai'
 const Navbar = () => {
+    const [token, setToken] = useState();
     const [isOpen, setIsOpen] = useState(null)
+    useEffect(() => {
+        setToken(getCookie('Auth token'));
+    }, [])
     return (
         <nav className="flex items-center  bg-[#f9f2d0] justify-between flex-wrap p-6">
             <div className="flex items-center mr-6 lg:mr-72">
@@ -42,11 +47,17 @@ const Navbar = () => {
                     <List />
                 </div>
 
-                <Link href={'/login'}>
+                {!token && <Link href={'/login'}>
                     <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10  bg-yellow-600 text-white px-6 py-2 rounded-full">
                         Login
                     </button>
-                </Link>
+                </Link>}
+
+                {token && <Link href={'/login'}>
+                    <button onClick={() => { deleteCookie("Auth token") }} className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10  bg-yellow-600 text-white px-6 py-2 rounded-full">
+                        Logout
+                    </button>
+                </Link>}
 
             </div>
         </nav >

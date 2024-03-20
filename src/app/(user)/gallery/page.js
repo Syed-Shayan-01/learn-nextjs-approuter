@@ -1,11 +1,15 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../navbar/page"
 import PageName from "@/components/pageName/PageName";
+import { getCookie } from "cookies-next";
+import { redirect, useRouter } from "next/navigation";
+import { render } from "react-dom";
+import { BallTriangle } from "react-loader-spinner";
 
 const page = () => {
     const [fullImageSrc, setFullImageSrc] = useState(null);
-
+    const router = useRouter();
     const displayFullImage = (imageSrc) => {
         setFullImageSrc(imageSrc);
     };
@@ -14,6 +18,26 @@ const page = () => {
         setFullImageSrc(null);
     };
 
+    useEffect(() => {
+        if (!getCookie("Auth token")) {
+            router.replace('/login');
+        }
+    })
+    if (!getCookie("Auth token")) {
+        return (<div className="flex justify-center items-center mt-52">
+            <BallTriangle
+                height={100}
+                width={100}
+                radius={5}
+                color="#4fa94d"
+                ariaLabel="ball-triangle-loading"
+                wrapperStyle={{}
+}
+                wrapperClass=""
+                visible={true}
+            /> </div >)
+
+    }
     return (
         <>
             <div>

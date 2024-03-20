@@ -1,5 +1,5 @@
 import PageName from "@/components/pageName/PageName"
-import Navbar from "../navbar/page"
+import Navbar from "../(user)/navbar/page"
 
 const page = () => {
     return (

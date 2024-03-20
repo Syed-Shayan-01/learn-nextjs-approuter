@@ -2,11 +2,9 @@ import Auth from "@/models/authSchema";
 import bcrypt from 'bcryptjs';
 import jwt from "jsonwebtoken"
 import connectDB from "@/db/connect";
-import { setCookie } from "cookies-next";
 import { NextResponse } from "next/server";
 
 export const POST = async (request) => {
-    // get email or password in json
     const { email, password } = await request.json();
 
     await connectDB();
@@ -20,7 +18,7 @@ export const POST = async (request) => {
         if (!validPass) {
             return new NextResponse("Password is not correct", { status: 422 });
         }
-        const token = jwt.sign({ id: emailFind._id }, process.env.JWT_SECRET);
+        const token = jwt.sign({ id: emailFind._id, email }, process.env.JWT_SECRET);
         return new NextResponse(token, { status: 200 });
 
     } catch (error) {

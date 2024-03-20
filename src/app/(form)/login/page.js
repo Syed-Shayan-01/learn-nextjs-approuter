@@ -1,16 +1,44 @@
 'use client'
 import Link from "next/link"
-import { useState } from "react";
-import { signIn } from "next-auth/react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { getCookie, setCookie } from "cookies-next";
+import { useEffect } from "react";
 
 const Login = () => {
+    const router = useRouter();
+    // const [error, setError] = React.useState(null);
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const email = e.target[1].value;
-        const password = e.target[2].value;
-        const data = await signIn('credentials', { redirect: false, email, password });
+        const email = e.target[0].value;
+        const password = e.target[1].value;
+        console.log(email, password)
+        try {
+            const res = await axios.post("/api/login/", {
+                email,
+                password,
+            });
+
+            if (res.status === 200) {
+                setCookie("Auth token", res.data)
+                router.replace('/');
+            } else if (res.status === 400) {
+                console.log("Email does not exist");
+            } else {
+                console.log(`Unexpected status code: ${res.status}`);
+            }
+        } catch (error) {
+            console.log(error);
+        }
 
     }
+
+    useEffect(() => {
+        const cookieCheck = getCookie("Auth token");
+        if (cookieCheck) {
+            router.replace('/')
+        }
+    })
 
     return (
         <div className="flex h-screen bg-[#fef7d7] items-center justify-center">
