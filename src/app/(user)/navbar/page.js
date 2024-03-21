@@ -25,14 +25,14 @@ const Navbar = () => {
                         <li>
                             <AiOutlineMenu
                                 className={` text-black font-semibold text-lg
-                               hover:text-blue-400 ${isOpen ? "hidden" : "block"
+                               hover:text-yelow-400 ${isOpen ? "hidden" : "block"
                                     }`}
                             />
                         </li>
                         <li>
                             <AiFillCloseCircle
                                 className={` text-black font-semibold text-lg
-                                 hover:text-blue-400 ${isOpen ? "block" : "hidden"
+                                 hover:text-yellow-400 ${isOpen ? "block" : "hidden"
                                     }`}
                             />
                         </li>

@@ -23,21 +23,6 @@ const page = () => {
             router.replace('/login');
         }
     })
-    if (!getCookie("Auth token")) {
-        return (<div className="flex justify-center items-center mt-52">
-            <BallTriangle
-                height={100}
-                width={100}
-                radius={5}
-                color="#4fa94d"
-                ariaLabel="ball-triangle-loading"
-                wrapperStyle={{}
-}
-                wrapperClass=""
-                visible={true}
-            /> </div >)
-
-    }
     return (
         <>
             <div>
