@@ -3,11 +3,16 @@ import Link from "next/link"
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { getCookie, setCookie } from "cookies-next";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Login = () => {
     const router = useRouter();
-    // const [error, setError] = React.useState(null);
+    const [token, setToken] = useState('');
+    useEffect(() => {
+        const initialToken = getCookie("Auth token") || '';
+        setToken(initialToken);
+        if (initialToken) router.replace('/')
+    }, []);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const email = e.target[0].value;
@@ -33,15 +38,8 @@ const Login = () => {
 
     }
 
-    useEffect(() => {
-        const cookieCheck = getCookie("Auth token");
-        if (cookieCheck) {
-            router.replace('/')
-        }
-    })
-
     return (
-        <div className="flex h-screen bg-[#fef7d7] items-center justify-center">
+        token ? <div>Loading ...</div> : <div className="flex h-screen bg-[#fef7d7] items-center justify-center">
             <div className="bg-white p-8 rounded-2xl shadow-xl w-96">
                 <h2 className="text-2xl font-bold text-center text-gray-700">Login Form</h2>
                 <div className="flex justify-center my-4">
@@ -86,7 +84,8 @@ const Login = () => {
             </div>
         </div>
     )
-}
 
+
+}
 export default Login;
 

@@ -1,11 +1,9 @@
 'use client'
 import { useEffect, useState } from "react";
-import Navbar from "../navbar/page"
+import Navbar from "../../../components/navbar/page"
 import PageName from "@/components/pageName/PageName";
 import { getCookie } from "cookies-next";
-import { redirect, useRouter } from "next/navigation";
-import { render } from "react-dom";
-import { BallTriangle } from "react-loader-spinner";
+import { useRouter } from "next/navigation";
 
 const page = () => {
     const [fullImageSrc, setFullImageSrc] = useState(null);
@@ -20,9 +18,9 @@ const page = () => {
 
     useEffect(() => {
         if (!getCookie("Auth token")) {
-            router.replace('/login');
+            return router.replace('/user/login');
         }
-    })
+    });
     return (
         <>
             <div>
