@@ -13,7 +13,7 @@ const Signup = () => {
         const password = e.target[2].value;
 
         try {
-            const res = await axios.post("/api/register/", {
+            const res = await axios.post("/api/user/register/", {
                 name,
                 email,
                 password,

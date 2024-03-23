@@ -1,4 +1,5 @@
 import React from 'react'
+import { AiOutlineLogout } from 'react-icons/ai';
 import { FaBlogger } from "react-icons/fa";
 const Dashboard = () => {
     return (
@@ -13,42 +14,11 @@ const Dashboard = () => {
                         <span class="font-medium">Blogs</span>
                     </a>
                     <a href="#" class="flex items-center space-x-2 text-gray-600" rel="ugc">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="h-6 w-6"
-                        >
-                            <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path>
-                            <path d="M13 5v2"></path>
-                            <path d="M13 17v2"></path>
-                            <path d="M13 11v2"></path>
-                        </svg>
+                       <FaVideo />
                         <span class="font-medium">Attendance</span>
                     </a>
                     <a href="#" class="flex items-center space-x-2 text-gray-600" rel="ugc">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="h-6 w-6"
-                        >
-                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                            <polyline points="16 17 21 12 16 7"></polyline>
-                            <line x1="21" x2="9" y1="12" y2="12"></line>
-                        </svg>
+                       <AiOutlineLogout />
                         <span class="font-medium">Logout</span>
                     </a>
                 </nav>
