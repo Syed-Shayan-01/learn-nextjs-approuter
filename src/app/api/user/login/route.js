@@ -19,6 +19,7 @@ export const POST = async (request) => {
             return new NextResponse("Password is not correct", { status: 422 });
         }
         const token = jwt.sign({ id: emailFind._id, email }, process.env.JWT_SECRET);
+
         return new NextResponse(token, { status: 200 });
     } catch (error) {
         return new Response('Error at server', { status: 500 })
