@@ -1,13 +1,10 @@
 'use client'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "../../../components/navbar/page"
 import PageName from "@/components/pageName/PageName";
-import { getCookie } from "cookies-next";
-import { useRouter } from "next/navigation";
 
 const page = () => {
     const [fullImageSrc, setFullImageSrc] = useState(null);
-    const router = useRouter();
     const displayFullImage = (imageSrc) => {
         setFullImageSrc(imageSrc);
     };
@@ -16,11 +13,11 @@ const page = () => {
         setFullImageSrc(null);
     };
 
-    useEffect(() => {
-        if (!getCookie("Auth token")) {
-            return router.replace('/user/login');
-        }
-    });
+    // useEffect(() => {
+    //     if (!getCookie("Auth token")) {
+    //         return router.replace('/user/login');
+    //     }
+    // });
     return (
         <>
             <div>
