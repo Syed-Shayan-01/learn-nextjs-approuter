@@ -8,11 +8,11 @@ import { useEffect, useState } from "react";
 const Login = () => {
     const router = useRouter();
     const [token, setToken] = useState('');
-    useEffect(() => {
-        const initialToken = getCookie("Auth token") || '';
-        setToken(initialToken);
-        if (initialToken) router.replace('/')
-    }, []);
+    // useEffect(() => {
+    //     const initialToken = getCookie("Auth token") || '';
+    //     setToken(initialToken);
+    //     if (initialToken) router.replace('/')
+    // }, []);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const email = e.target[0].value;
@@ -25,7 +25,7 @@ const Login = () => {
             });
 
             if (res.status === 200) {
-                setCookie("Auth token", res.data)
+                // setCookie("Auth token", res.data)
                 router.replace('/');
             } else if (res.status === 400) {
                 console.log("Email does not exist");

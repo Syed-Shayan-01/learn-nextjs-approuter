@@ -20,7 +20,15 @@ export const POST = async (request) => {
         }
         const token = jwt.sign({ id: emailFind._id, email }, process.env.JWT_SECRET);
 
-        return new NextResponse(token, { status: 200 });
+        // set token in cookies
+        const response = NextResponse.json({
+            success: true,
+            message: "User Login Successfuly"
+        });
+        response.cookies.set("AuthToken", token, {
+            httpOnly: true,
+        });
+        return response;
     } catch (error) {
         return new Response('Error at server', { status: 500 })
     }
