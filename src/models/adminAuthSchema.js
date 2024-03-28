@@ -18,6 +18,7 @@ const adminAdminSchema = new Schema({
     },
     isAdmin: {
         type: Boolean,
+        required: true
     },
 }, { timestamps: true });
 

@@ -13,7 +13,7 @@ export const POST = async (request) => {
         if (emailFind) {
             return new NextResponse("Email is already Exist", { status: 400 });
         }
-        if (isAdmin === false && !isAdmin) {
+        if (!isAdmin) {
             return new NextResponse("You are not admin", { status: 400 });
         }
         if (password.length <= 6) {
@@ -25,6 +25,7 @@ export const POST = async (request) => {
             name,
             email,
             password: newPassword,
+            isAdmin
         });
         const response = await newUser.save();
         return new NextResponse(response, { status: 201, success: true })

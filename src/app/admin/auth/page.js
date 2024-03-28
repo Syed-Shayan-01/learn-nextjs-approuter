@@ -14,9 +14,8 @@ const Login = () => {
         try {
             if (email && password) {
                 const response = await axios.post('/api/admin/auth/login', data);
+                console.log(response);
                 if (response.status === 200) {
-                    // console.log(response);
-                    setCookie("AdminAuthToken", response.data)
                     router.replace('/admin/dashboard')
                 }
 
@@ -27,14 +26,6 @@ const Login = () => {
             console.error("Error:", error);
         }
     };
-
-    useEffect(() => {
-        const token = getCookie("AdminAuthToken")
-        if (token) {
-            router.replace("/admin/dashboard"); // Redirect to login page if token doesn't exist
-        }
-    }, [router]);
-
     return (
         <div className="min-h-screen bg-yellow-50 flex justify-center items-center p-4">
             <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-sm">
