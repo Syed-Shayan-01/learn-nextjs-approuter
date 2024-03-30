@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { LuGraduationCap } from "react-icons/lu";
-import { getCookie, setCookie } from 'cookies-next';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import axios from 'axios';
 const Login = () => {
     const [email, setemail] = useState('');
@@ -14,18 +15,52 @@ const Login = () => {
         try {
             if (email && password) {
                 const response = await axios.post('/api/admin/auth/login', data);
-                console.log(response);
                 if (response.status === 200) {
-                    router.replace('/admin/dashboard')
-                }
+                    Toastify({
+                        text: "Admin Login Success",
+                        duration: 3000,
+                        newWindow: true,
+                        close: true,
+                        gravity: "top",
+                        position: "left",
+                        stopOnFocus: true,
+                        duration: 2000,
+                        style: {
+                            background: "linear-gradient(to left, #f9f2d0, #eab308)",
+                            color: "black",
+                            fontSize: "16px",
+                            fontFamily: "sans-serif",
+                            width: "20rem"
+                        },
+                    }).showToast();
+                    setTimeout(() => {
+                        router.replace('/admin/dashboard')
+                    }, 2500)
 
-            } else {
-                alert('Please enter the email, password')
+                }
             }
         } catch (error) {
-            console.error("Error:", error);
+            if (error.response.status === 422 || error.response.status === 400) {
+                Toastify({
+                    text: error.response.data,
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top",
+                    position: "left",
+                    stopOnFocus: true,
+                    duration: 2000,
+                    style: {
+                        background: "linear-gradient(to left, #f9f2d0, #eab308)",
+                        color: "black",
+                        fontSize: "16px",
+                        fontFamily: "sans-serif",
+                        width: "20rem"
+                    },
+                }).showToast();
+            }
         }
-    };
+    }
     return (
         <div className="min-h-screen bg-yellow-50 flex justify-center items-center p-4">
             <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-sm">

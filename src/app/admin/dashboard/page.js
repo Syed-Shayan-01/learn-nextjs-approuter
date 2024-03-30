@@ -1,41 +1,9 @@
 'use client';
-import { deleteCookie, getCookie, getCookies } from 'cookies-next';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React, { useEffect } from 'react'
-import { AiOutlineLogout } from 'react-icons/ai';
-import { FaBlogger } from "react-icons/fa";
-import { FaVideo } from 'react-icons/fa6';
+import AdminNavbar from '@/components/(admin)/navbar/page';
 const Dashboard = () => {
-    const router = useRouter();
-    const handleClick = async () => {
-        const cookie = await getCookie("AdminAuthCookie");
-        if (cookie) {
-            deleteCookie("AdminAuthCookie");
-            router.replace('/admin/auth/')
-        }
-    }
     return (
         <div className="min-h-screen bg-gray-100 h-screen flex flex-col md:flex-row">
-            <aside className="w-full md:w-64 bg-white p-6">
-                <div className="mb-10">
-                    <span className="text-2xl font-bold">Logo</span>
-                </div>
-                <nav className="space-y-2">
-                    <Link href="#" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600" >
-                        <FaBlogger />
-                        <span className="font-medium">Blogs</span>
-                    </Link>
-                    <Link href="#" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600" >
-                        <FaVideo />
-                        <span className="font-medium">Attendance</span>
-                    </Link>
-                    <div className="flex items-center space-x-2 text-gray-600 hover:text-blue-600" >
-                        <AiOutlineLogout />
-                        <span onClick={handleClick} className="font-medium">Logout</span>
-                    </div>
-                </nav>
-            </aside>
+            <AdminNavbar />
             <main className="flex-1 p-6">
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-bold">Students</h1>

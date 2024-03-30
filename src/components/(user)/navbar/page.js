@@ -1,5 +1,5 @@
 'use client'
-import List from '@/components/list/List';
+import List from '@/components/(user)/list/List';
 import { deleteCookie, getCookies } from 'cookies-next';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';

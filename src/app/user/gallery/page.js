@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
-import Navbar from "../../../components/navbar/page"
-import PageName from "@/components/pageName/PageName";
+import Navbar from "../../../components/(user)/navbar/page"
+import PageName from "@/components/(user)/pageName/PageName";
 
 const page = () => {
     const [fullImageSrc, setFullImageSrc] = useState(null);

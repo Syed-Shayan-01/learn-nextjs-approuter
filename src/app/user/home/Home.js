@@ -1,6 +1,6 @@
-import Carouse from "@/components/carousel/Carousel"
-import Navbar from "../../../components/navbar/page"
-import Footer from "@/components/footer/Footer"
+import Carouse from "@/components/(user)/carousel/Carousel"
+import Navbar from "../../../components/(user)/navbar/page"
+import Footer from "@/components/(user)/footer/Footer"
 
 
 const Home = () => {
