@@ -27,8 +27,8 @@ export const POST = async (request) => {
 export const GET = async (request) => {
     await connectDB();
     try {
-        const title = await Blog.find();
-        return new NextResponse(title, { status: 200 })
+        const blogs = await Blog.find();
+        return new NextResponse(blogs, { status: 200 })
     } catch (error) {
         return new NextResponse(error.message, { status: 500 });
     }
