@@ -1,14 +1,14 @@
 'use client'
-import React, {  useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import JoditEditor from 'jodit-react';
 import axios from 'axios';
-
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 function AdminBlogForm() {
     const [title, setTitle] = useState('');
     const [Description, setDescription] = useState('');
     const [content, setContent] = useState('');
     const editor = useRef(null);
-    const [blog, setBlog] = useState([]); // Initialize blog as an empty array
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,7 +16,23 @@ function AdminBlogForm() {
             const data = { title, content, Description };
             const response = await axios.post('/api/admin/Blog', data);
             if (response.status === 200) {
-                setBlog([...blog, response.data]); // Add new blog item to the existing blog array
+                Toastify({
+                    text: "Blogs Successfuly Created",
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top",
+                    position: "left",
+                    stopOnFocus: true,
+                    duration: 2000,
+                    style: {
+                        background: "linear-gradient(to left, #f9f2d0, #eab308)",
+                        color: "black",
+                        fontSize: "16px",
+                        fontFamily: "sans-serif",
+                        width: "20rem"
+                    },
+                }).showToast();
             }
         } catch (error) {
             console.log(error);
@@ -55,13 +71,6 @@ function AdminBlogForm() {
                 </div>
             </div>
             <div>
-                {blog.map((item) => (
-                    <ul key={item._id}>
-                        <li>{item.title}</li>
-                        <li>{item.Description}</li>
-                        <li>{item.content}</li>
-                    </ul>
-                ))}
             </div>
         </div>
     );

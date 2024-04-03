@@ -11,7 +11,7 @@ const Footer = () => {
                             <h2 className="mb-6 text-[1rem] font-semibold text-yellow-800 uppercase dark:text-white">Alquran Social accounts</h2>
                             <ul className="dark:text-yellow-400 font-medium">
                                 <li className="mb-4">
-                                    <Link href="https://www.facebook.com/profile.php?id=61554712596180" className="hover:underline">Facebook</Link>
+                                    <Link href="https://www.facebook.com/profile.php?id=100093587807705" className="hover:underline">Facebook</Link>
                                 </li>
                                 <li className="mb-4">
                                     <Link href="#" className="hover:underline">Twitter</Link>

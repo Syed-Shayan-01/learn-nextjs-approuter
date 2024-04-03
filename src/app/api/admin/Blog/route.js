@@ -28,7 +28,12 @@ export const GET = async (request) => {
     await connectDB();
     try {
         const blogs = await Blog.find();
-        return new NextResponse(blogs, { status: 200 })
+
+        return NextResponse.json({
+            status: 200,
+            message: "Blogs Data Successfuly Received",
+            data: blogs,
+        })
     } catch (error) {
         return new NextResponse(error.message, { status: 500 });
     }
