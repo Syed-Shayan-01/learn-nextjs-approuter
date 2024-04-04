@@ -24,11 +24,11 @@ const page = () => {
                 <Navbar />
             </div>
             <PageName pageNameText={'Image Gallery'} />
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 p-12">
+            <div class="grid grid-cols-2  md:grid-cols-3 gap-4 p-12">
                 <div>
                     <img class="h-auto max-w-full rounded-lg" onClick={() => displayFullImage('https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg')} src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="" />
                 </div>
-                {/* <div>
+                <div>
                     <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" />
                 </div>
                 <div>
@@ -60,7 +60,7 @@ const page = () => {
                 </div>
                 <div>
                     <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="" />
-                </div> */}
+                </div>
 
                 {fullImageSrc && (
                     <div className=" w-[90vh] h-[90vh] relative right-32 bottom-40" onClick={closeFullImage}>
