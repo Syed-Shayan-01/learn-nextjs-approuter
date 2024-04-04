@@ -57,7 +57,7 @@ const BlogPage = () => {
                                         Islamic Blog
                                     </div>
                                     <h3 className="mt-4 text-lg leading-6 font-medium text-gray-900">{blog.title}</h3>
-                                    <Link href={`/user/blogPage/${encodeURIComponent(blog.content)}`} className="mt-2 text-base leading-6 text-gray-500" dangerouslySetInnerHTML={createMarkup(
+                                    <Link href={`/user/blogPage/${encodeURIComponent([blog.title, blog.content])}`} className="mt-2 text-base leading-6 text-gray-500" dangerouslySetInnerHTML={createMarkup(
                                         blog.Description && blog.Description.length >= 60
                                             ? `${blog.Description.slice(140, 170)}...`
                                             : blog.Description
