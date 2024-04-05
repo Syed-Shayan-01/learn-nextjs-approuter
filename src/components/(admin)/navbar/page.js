@@ -44,9 +44,9 @@ const AdminNavbar = () => {
                         <FaBlogger />
                         <span className="font-medium">Blogs</span>
                     </Link>
-                    <Link href="#" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600" >
+                    <Link href="/admin/ImagePage" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600" >
                         <FaVideo />
-                        <span className="font-medium">Attendance</span>
+                        <span className="font-medium">Image</span>
                     </Link>
                     <div className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600" >
                         <AiOutlineLogout />

@@ -4,12 +4,18 @@ import { deleteCookie, getCookies } from 'cookies-next';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AiFillCloseCircle, AiOutlineMenu } from 'react-icons/ai'
-const Navbar = () => {
+import ButtonUser from '../button/page';
+import axios from 'axios';
+const Navbar = ({ props }) => {
     const [token, setToken] = useState();
     const [isOpen, setIsOpen] = useState(null)
-    useEffect(() => {
-        // remain work
-    }, []);
+
+    const handleLogout = async () => {
+        const response = await axios.get('/api/admin/logout');
+        console.log(response)
+    }
+
+
     return (
         <nav className="flex items-center  bg-[#f9f2d0] justify-between flex-wrap p-6">
             <div className="flex items-center mr-6 lg:mr-72">
@@ -48,15 +54,11 @@ const Navbar = () => {
                 </div>
 
                 {!token && <Link href={'/admin/auth/'}>
-                    <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10  bg-yellow-600 text-white px-6 py-2 rounded-full">
-                        Login
-                    </button>
+                    <ButtonUser props={'Login'} />
                 </Link>}
 
-                {token && <Link href={'/user/login'}>
-                    <button onClick={() => { deleteCookie("AdminAuthCookie") }} className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10  bg-yellow-600 text-white px-6 py-2 rounded-full">
-                        Logout
-                    </button>
+                {token && <Link onClick={handleLogout} href={'/user/login'}>
+                    <ButtonUser props={'Logout'} />
                 </Link>}
 
             </div>
