@@ -1,6 +1,7 @@
 import { access, rmdir, unlink, writeFile } from 'fs/promises';
 import { NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
+import Image from '@/models/imageSchema';
 
 cloudinary.config({
     cloud_name: 'disalrbow',
@@ -43,8 +44,14 @@ export const POST = async (request) => {
                     status: 500
                 });
             }
-            console.log(result); // Log Cloudinary upload result
 
+            const image = new Image({
+                image: result.url
+            })
+            const imageSave = await image.save();
+            if (!imageSave) {
+                return NextResponse.json({ message: "Image url not save in Mongodb", status: 400 })
+            }
             // After successful upload to Cloudinary, delete the image from local directory
             await unlink(path);
             console.log("Image deleted from local directory.");
