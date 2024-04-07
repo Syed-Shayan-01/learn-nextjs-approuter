@@ -1,14 +1,17 @@
 'use client'
-import { useRef, useState } from 'react';
-import JoditEditor from 'jodit-react';
+import { useState } from 'react';
 import axios from 'axios';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
+import dynamic from 'next/dynamic';
+const JoditEditor = dynamic(
+    () => import('jodit-react'),
+    { ssr: false }
+);
 export default function AdminBlogForm() {
     const [title, setTitle] = useState('');
     const [Description, setDescription] = useState('');
     const [content, setContent] = useState('');
-    const editor = useRef(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -57,7 +60,7 @@ export default function AdminBlogForm() {
 
                             <div className="mb-8">
                                 <label className="text-xl text-gray-600">Content <span className="text-red-500">*</span></label><br />
-                                <JoditEditor ref={editor}
+                                <JoditEditor
                                     value={content}
                                     onChange={newContent => { setContent(newContent) }}
                                 />
