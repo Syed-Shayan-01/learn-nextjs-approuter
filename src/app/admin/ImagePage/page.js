@@ -1,5 +1,6 @@
 'use client'
 import ButtonUser from '@/components/(user)/button/page';
+import { axios } from 'axios';
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { FaCloudUploadAlt } from "react-icons/fa";
@@ -8,6 +9,15 @@ const ImageUploadPageAdmin = () => {
   const [image, setImage] = useState(null);
   const SubmitHandler = (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append('image', image);
+    try {
+
+      const response = axios.post('/api/admin/imageUpload', formData);
+      console.log('response: ', response);
+    } catch (error) {
+      return error
+    }
   }
 
 
