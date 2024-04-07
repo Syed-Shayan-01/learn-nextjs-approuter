@@ -1,20 +1,39 @@
-'use client'
+'use client';
 import ButtonUser from '@/components/(user)/button/page';
-import { axios } from 'axios';
+import axios from 'axios';
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { FaCloudUploadAlt } from "react-icons/fa";
-
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 const ImageUploadPageAdmin = () => {
   const [image, setImage] = useState(null);
-  const SubmitHandler = (e) => {
+  const SubmitHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('image', image);
     try {
 
-      const response = axios.post('/api/admin/imageUpload', formData);
-      console.log('response: ', response);
+      const response = await axios.post('/api/admin/imageUpload', formData);
+      if (response.status === 200) {
+        Toastify({
+          text: "Image uploaded successfully",
+          duration: 3000,
+          newWindow: true,
+          close: true,
+          gravity: "top",
+          position: "left",
+          stopOnFocus: true,
+          duration: 2000,
+          style: {
+            background: "linear-gradient(to left, #f9f2d0, #eab308)",
+            color: "black",
+            fontSize: "16px",
+            fontFamily: "sans-serif",
+            width: "20rem"
+          },
+        }).showToast();
+      }
     } catch (error) {
       return error
     }
