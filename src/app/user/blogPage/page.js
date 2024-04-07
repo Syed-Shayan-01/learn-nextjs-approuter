@@ -4,7 +4,7 @@ import PageName from "@/components/(user)/pageName/PageName";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import Image from 'next/image';
 const BlogPage = () => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -45,7 +45,7 @@ const BlogPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {blogs && blogs.map((blog) => (
                             <div key={blog._id} className="bg-white rounded-lg shadow overflow-hidden">
-                                <img
+                                <Image
                                     className="w-full h-48 object-cover"
                                     src={blog.imageURL || "/placeholder.svg"}
                                     alt={blog.title}
@@ -65,10 +65,12 @@ const BlogPage = () => {
 
                                     <div className="mt-6 flex items-center">
                                         <span className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
-                                            <img
+                                            <Image
                                                 className="aspect-square h-full w-full"
                                                 alt={'Al - Quran'}
                                                 src={"/image/alquran.png"}
+                                                width={400}
+                                                height={200}
                                             />
                                         </span>
                                         <div className="ml-3">

@@ -40,7 +40,7 @@ const AdminNavbar = () => {
                     <span className="text-2xl font-bold">Logo</span>
                 </div>
                 <nav className="space-y-2">
-                    <Link href="/admin/blog" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600" >
+                    <Link href="/admin/blogForm" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600" >
                         <FaBlogger />
                         <span className="font-medium">Blogs</span>
                     </Link>

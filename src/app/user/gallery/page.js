@@ -1,16 +1,16 @@
 'use client'
-import { useState } from "react";
 import Navbar from "../../../components/(user)/navbar/page"
 import PageName from "@/components/(user)/pageName/PageName";
-
-const page = () => {
-    const [fullImageSrc, setFullImageSrc] = useState(null);
+import Image from 'next/image';
+import { useState } from "react";
+const Gallery = () => {
+    const [fullImageSrc, setFullImageSrc] = useState();
     const displayFullImage = (imageSrc) => {
         setFullImageSrc(imageSrc);
     };
 
     const closeFullImage = () => {
-        setFullImageSrc(null);
+        setFullImageSrc();
     };
 
     // useEffect(() => {
@@ -24,48 +24,15 @@ const page = () => {
                 <Navbar />
             </div>
             <PageName pageNameText={'Image Gallery'} />
-            <div class="grid grid-cols-2  md:grid-cols-3 gap-4 p-12">
+            <div className="grid grid-cols-2  md:grid-cols-3 gap-4 p-12">
                 <div>
-                    <img class="h-auto max-w-full rounded-lg" onClick={() => displayFullImage('https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg')} src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="" />
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="" />
+                    <Image className="h-auto max-w-full rounded-lg" width={400} height={200} onClick={() => displayFullImage('/image/madina.jpg')} src="/image/madina.jpg" alt="" />
                 </div>
 
                 {fullImageSrc && (
                     <div className=" w-[90vh] h-[90vh] relative right-32 bottom-40" onClick={closeFullImage}>
                         <span className="close-button">&times;</span>
-                        <img src={fullImageSrc} alt="Full Image" />
+                        <Image src={fullImageSrc} alt="Full Image" width={400} height={200} />
                     </div>
                 )}
             </div>
@@ -74,4 +41,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Gallery

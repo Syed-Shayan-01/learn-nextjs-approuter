@@ -1,7 +1,7 @@
 import Carouse from "@/components/(user)/carousel/Carousel"
 import Navbar from "../../../components/(user)/navbar/page"
 import Footer from "@/components/(user)/footer/Footer"
-
+import Image from 'next/image'
 
 const Home = () => {
     return (
@@ -19,7 +19,7 @@ const Home = () => {
                             </p>
                         </div>
                     </div>
-                    <img
+                    <Image
                         alt="Image"
                         className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
                         height="420"

@@ -1,12 +1,12 @@
 'use client'
 import List from '@/components/(user)/list/List';
-import { deleteCookie, getCookies } from 'cookies-next';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AiFillCloseCircle, AiOutlineMenu } from 'react-icons/ai'
 import ButtonUser from '../button/page';
 import axios from 'axios';
-const Navbar = ({ props }) => {
+import Image from 'next/image'
+const Navbar = () => {
     const [token, setToken] = useState();
     const [isOpen, setIsOpen] = useState(null)
 
@@ -19,7 +19,7 @@ const Navbar = ({ props }) => {
     return (
         <nav className="flex items-center  bg-[#f9f2d0] justify-between flex-wrap p-6">
             <div className="flex items-center mr-6 lg:mr-72">
-                {!isOpen && <img src="/image/alquran.png" alt="logo" className='absolute shadow-xl top-1 w-32 h-32' />}
+                {!isOpen && <Image src="/image/alquran.png" width={400} height={200} alt="logo" className='absolute shadow-xl top-1 w-32 h-32' />}
             </div>
             <div className="block lg:hidden">
                 <button

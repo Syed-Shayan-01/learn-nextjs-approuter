@@ -1,10 +1,10 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import JoditEditor from 'jodit-react';
 import axios from 'axios';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
-function AdminBlogForm() {
+export default function AdminBlogForm() {
     const [title, setTitle] = useState('');
     const [Description, setDescription] = useState('');
     const [content, setContent] = useState('');
@@ -74,6 +74,4 @@ function AdminBlogForm() {
             </div>
         </div>
     );
-}
-
-export default AdminBlogForm;
+};
