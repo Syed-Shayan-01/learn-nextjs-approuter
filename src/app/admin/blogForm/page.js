@@ -19,7 +19,6 @@ export default function AdminBlogForm() {
             const data = { title, content, Description };
             const response = await axios.post('/api/admin/Blog', data);
             if (response.status === 200) {
-                console.log(response)
                 Toastify({
                     text: "Blogs Successfuly Created",
                     duration: 3000,

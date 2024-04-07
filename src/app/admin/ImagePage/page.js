@@ -16,6 +16,7 @@ const ImageUploadPageAdmin = () => {
 
       const response = await axios.post('/api/admin/imageUpload', formData);
       if (response.status === 200) {
+        console.log(response);
         Toastify({
           text: "Image uploaded successfully",
           duration: 3000,
