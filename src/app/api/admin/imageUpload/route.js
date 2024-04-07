@@ -2,6 +2,7 @@ import { access, rmdir, unlink, writeFile } from 'fs/promises';
 import { NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
 import Image from '@/models/imageSchema';
+import connectDB from '@/db/connect';
 
 cloudinary.config({
     cloud_name: 'disalrbow',
@@ -10,6 +11,7 @@ cloudinary.config({
 });
 
 export const POST = async (request) => {
+    await connectDB();
     try {
         const file = await request.formData();
         const data = await file.get('image');
