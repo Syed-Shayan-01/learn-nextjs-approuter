@@ -29,7 +29,7 @@ export const GET = async (request) => {
         return NextResponse.json({
             status: 200,
             message: "Image Data Successfuly Received",
-            data: blogs,
+            data: images,
         })
     } catch (error) {
         return new NextResponse({ error: error.message }, { status: 400 })
