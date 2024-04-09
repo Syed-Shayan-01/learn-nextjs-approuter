@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
-const config = {
-    experimental: {
-      serverActions: true,
-    },
-  }
-   
-  module.exports = config
+// next.config.js
+module.exports = {
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
+}
