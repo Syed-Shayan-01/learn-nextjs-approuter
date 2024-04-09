@@ -16,14 +16,3 @@ export async function POST(request) {
 
     return NextResponse.json({ signature });
 }
-
-
-// export async function GET(request) {
-//     try {
-//         const imageUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}`;
-//         return NextResponse.json({ imageUrl }, { status: 200 });
-//     } catch (error) {
-//         console.error('Failed to fetch image from Cloudinary:', error);
-//         res.status(500).json({ message: 'Failed to fetch image from Cloudinary.' });
-//     }
-// }

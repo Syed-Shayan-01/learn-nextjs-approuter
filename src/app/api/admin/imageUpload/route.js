@@ -15,3 +15,23 @@ export const POST = async (request) => {
         return new NextResponse({ error: error.message }, { status: 400 })
     }
 }
+
+
+// create get api and get all the imageurl in mongodb
+
+export const GET = async (request) => {
+    await connectDB();
+    try {
+        const images = await Image.find();
+        if (!images) {
+            return new NextResponse("No Image Found", { status: 400 })
+        }
+        return NextResponse.json({
+            status: 200,
+            message: "Image Data Successfuly Received",
+            data: blogs,
+        })
+    } catch (error) {
+        return new NextResponse({ error: error.message }, { status: 400 })
+    }
+}
