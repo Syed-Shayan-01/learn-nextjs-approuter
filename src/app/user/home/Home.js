@@ -15,7 +15,7 @@ const Home = () => {
                             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Introduction of Al-Quran Academy</h2>
                             <p className="max-w-[600px] text-justify text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                                 Established three years ago,
-                                Al-Qur'an Academy stands as a prestigious institution,
+                                Al-Quran Academy stands as a prestigious institution,
                                 dedicated to training more than 400 students in religious studies.
                                 Committed to comprehensive education,
                                 it also imparts comprehensive secular knowledge, catering to students from nursery to matric level.
