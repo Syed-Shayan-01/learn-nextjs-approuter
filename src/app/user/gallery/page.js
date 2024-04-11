@@ -38,6 +38,7 @@ const Gallery = () => {
             </div>
             <PageName pageNameText={'Image Gallery'} />
             <div className="grid grid-cols-2  md:grid-cols-3 gap-4 p-12">
+                {images.length === 0 &&(<div className="font-bold">Please check after a few days</div>)}
                 {images && images.map((image) => (
                     <div key={image._id} className="hover:scale-110 duration-300">
                         <Link href={image.imageUrl} target="_blank" rel="noopener noreferrer">
@@ -45,7 +46,7 @@ const Gallery = () => {
                         </Link>
                     </div>)
                 )}
-            </div>
+            </div >
         </>
     )
 }
