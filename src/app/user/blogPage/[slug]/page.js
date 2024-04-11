@@ -26,12 +26,14 @@ const Blog = ({ params }) => {
   return (
     <>
       <Navbar />
-      <div className="mx-24 py-20">
-        <span> <div className="my-5 font-bold text-[3rem] font-[sans-serif]" dangerouslySetInnerHTML={createMarkup(
-          getFirstWordFromSlug(params.slug)
-        )} /></span>
+      <div className="mx-4 md:mx-8 lg:mx-24 py-8 md:py-12 lg:py-20">
+        <span>
+          <div className="my-5 font-bold text-[2.4rem] md:text-[3.5rem] lg:text-[4rem] font-[sans-serif]" dangerouslySetInnerHTML={createMarkup(
+            getFirstWordFromSlug(params.slug)
+          )} />
+        </span>
 
-        <div className=" text-[1.25rem] font-[sans-serif] text-justify" dangerouslySetInnerHTML={createMarkup(
+        <div className="text-[1.25rem] font-[sans-serif] text-justify" dangerouslySetInnerHTML={createMarkup(
           getContentAfterFirstWord(params.slug)
         )} />
       </div>

@@ -40,14 +40,14 @@ const BlogPage = () => {
         <>
             <Navbar />
             <PageName pageNameText={'Islamic Blogs List'} />
-            <div className=" min-h-screen py-10">
+            <div className="  py-10">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {blogs && blogs.map((blog) => (
-                            <div key={blog._id} className="bg-white rounded-lg shadow overflow-hidden">
+                            <div key={blog._id} className="bg-white rounded-lg shadow shadow-[#33a5af] overflow-hidden">
                                 <Image
-                                    className="w-full h-48 object-cover"
-                                    src={blog.imageURL || "/placeholder.svg"}
+                                    className="w-full h-[20vh] object-cover hover:scale-75 duration-300"
+                                    src={'/image/alquran1.png'}
                                     alt={blog.title}
                                     width="400"
                                     height="200"
@@ -68,7 +68,7 @@ const BlogPage = () => {
                                             <Image
                                                 className="aspect-square h-full w-full"
                                                 alt={'Al - Quran'}
-                                                src={"/image/alquran.png"}
+                                                src={"/image/alquran1.png"}
                                                 width={400}
                                                 height={200}
                                             />

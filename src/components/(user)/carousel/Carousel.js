@@ -11,7 +11,9 @@ const CarouselComponent = () => (
                         src="/image/masjid-aqsa2.jpg"
                         alt="carousel pic sales"
                         className="object-cover w-full h-full"
-                        layout='fill'
+                          layout='fill'
+                    //    height={200}
+                    //    width={400}
                     />
                 </div>
             </h3>
@@ -23,7 +25,9 @@ const CarouselComponent = () => (
                         src="/image/makkah.jpeg"
                         alt="carousel pic sales"
                         className="object-cover w-full h-full"
-                        layout='fill'
+                       layout='fill'
+                    //    height={200}
+                    //    width={400}
                     />
                 </div>
             </h3>
@@ -35,7 +39,9 @@ const CarouselComponent = () => (
                         src="/image/madina.jpg"
                         alt="carousel pic sales"
                         className="object-cover w-full h-full"
-                        layout='fill'
+                       layout='fill'
+                    //    height={200}
+                    //    width={400}
                     />
                 </div>
             </h3>

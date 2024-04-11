@@ -26,7 +26,7 @@ const Login = () => {
                         stopOnFocus: true,
                         duration: 2000,
                         style: {
-                            background: "linear-gradient(to left, #f9f2d0, #eab308)",
+                            background: "linear-gradient(to left, #fff, #1dadba)",
                             color: "black",
                             fontSize: "16px",
                             fontFamily: "sans-serif",
@@ -51,7 +51,7 @@ const Login = () => {
                     stopOnFocus: true,
                     duration: 2000,
                     style: {
-                        background: "linear-gradient(to left, #f9f2d0, #eab308)",
+                        background: "linear-gradient(to left, #fff, #1dadba)",
                         color: "black",
                         fontSize: "16px",
                         fontFamily: "sans-serif",
@@ -62,10 +62,10 @@ const Login = () => {
         }
     }
     return (
-        <div className="min-h-screen bg-yellow-50 flex justify-center items-center p-4">
+        <div className="min-h-screen bg-[#1dadba] flex justify-center items-center p-4">
             <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-sm">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className=" m-auto font-bold text-yellow-500"><LuGraduationCap size={80} /></h2>
+                    <h2 className=" m-auto font-bold text-[#33a5af]"><LuGraduationCap size={80} /></h2>
                 </div>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                     <input
@@ -84,7 +84,7 @@ const Login = () => {
                         value={password}
                         onChange={(e) => { setpassword(e.target.value) }}
                     />
-                    <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-yellow-500 text-white w-full">
+                    <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-[#33a5af] text-white w-full">
                         Sign In
                     </button>
                 </form>
