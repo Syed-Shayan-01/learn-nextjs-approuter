@@ -3,11 +3,11 @@ import { FaFacebookF, FaGithub, FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <footer className="bg-[#f9f2d0] dark:bg-yellow-900">
+        <footer className="bg-[#33a5af]">
             <div className="container mx-auto px-4 py-6 lg:py-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                     <div>
-                        <h2 className="mb-4 text-lg font-semibold text-yellow-800 uppercase dark:text-white">Alquran Social accounts</h2>
+                        <h2 className="mb-4 text-lg font-semibold text-[#f7ae24] uppercase dark:text-white">Alquran Social accounts</h2>
                         <ul className="text-sm dark:text-yellow-400">
                             <li className="mb-2">
                                 <Link href="https://www.facebook.com/profile.php?id=100093587807705" className="hover:underline">Facebook</Link>
@@ -21,7 +21,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-4 text-lg font-semibold text-yellow-800 uppercase dark:text-white">Developer Social accounts</h2>
+                        <h2 className="mb-4 text-lg font-semibold text-[#f7ae24] uppercase dark:text-white">Developer Social accounts</h2>
                         <ul className="text-sm dark:text-yellow-400">
                             <li className="mb-2">
                                 <Link href="https://syed-shayan.vercel.app" className="hover:underline">Website</Link>
@@ -38,7 +38,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-4 text-lg font-semibold text-yellow-800 uppercase dark:text-white">Legal</h2>
+                        <h2 className="mb-4 text-lg font-semibold text-[#f7ae24] uppercase dark:text-white">Legal</h2>
                         <ul className="text-sm dark:text-yellow-400">
                             <li className="mb-2">
                                 <Link href="#" className="hover:underline">Privacy Policy</Link>
@@ -53,7 +53,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="flex justify-between items-center mt-8">
-                    <span className="text-sm lg:text-base text-yellow-600 dark:text-yellow-300">© 2024 <a href="https://syed-shayan.vercel.app/">Syed Shayan™</a>. All Rights Reserved.</span>
+                    <span className="text-sm lg:text-base text-[#f7ae24] dark:text-yellow-300">© 2024 <a href="https://syed-shayan.vercel.app/">Syed Shayan™</a>. All Rights Reserved.</span>
                     <div className="flex space-x-3">
                         <Link href="https://www.facebook.com/syed.shayanDev/" className="hover:text-black dark:hover:text-white">
                             <FaFacebookF />
