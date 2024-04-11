@@ -13,7 +13,7 @@ const Home = () => {
                     <div className="flex flex-col justify-center space-y-4">
                         <div className="space-y-2">
                             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Introduction of Al-Quran Academy</h2>
-                            <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                            <p className="max-w-[600px] text-justify text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos est unde repellendus vel sit quisquam qui dicta labore, facere rerum dolorum incidunt assumenda eius totam ducimus odio voluptatem tenetur earum!
                                 Eveniet saepe laborum consequuntur ex eum quos quis quidem vitae, debitis aut, velit ad doloremque! Reiciendis, sint blanditiis aliquid tempora adipisci, autem molestias expedita quo minima esse, aut earum assumenda.
                             </p>

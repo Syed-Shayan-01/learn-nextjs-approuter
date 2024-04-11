@@ -25,8 +25,8 @@ const Navbar = () => {
                         width={100}
                         height={50}
                         alt="logo"
-                        className="absolute top-1 w-16 h-16 md:w-32 md:h-32 "
-                        style={{filter: 'drop-shadow(0px 0px 3.8px white)'}}
+                        className="absolute top-1 w-28 h-28 sm:w-32 sm:h-32 "
+                        style={{ filter: 'drop-shadow(0px 0px 3.8px white)' }}
                     />
                 )}
             </div>
@@ -50,15 +50,17 @@ const Navbar = () => {
                     </ol>
                 </button>
             </div>
-            
+
             <div className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"}`}>
                 <div className={`inline-flex lg:flex-grow ${isOpen ? "flex-col" : ""}`}>
                     <List />
                 </div>
-
-                {!token && <Link href={'/admin/auth/'}><ButtonUser props={'Login'} /></Link>}
-                {token && <Link onClick={handleLogout} href={'/user/login'}><ButtonUser props={'Logout'} /></Link>}
+                <div className="ml-auto"> {/* Use ml-auto to push the button to the right */}
+                    {!token && <Link href={'/admin/auth/'}><ButtonUser props={'Login'} /></Link>}
+                    {token && <Link onClick={handleLogout} href={'/user/login'}><ButtonUser props={'Logout'} /></Link>}
+                </div>
             </div>
+
         </nav>
     );
 }
