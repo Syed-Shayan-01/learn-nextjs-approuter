@@ -8,62 +8,58 @@ import axios from 'axios';
 import Image from 'next/image'
 const Navbar = () => {
     const [token, setToken] = useState();
-    const [isOpen, setIsOpen] = useState(null)
+    const [isOpen, setIsOpen] = useState(null);
 
     const handleLogout = async () => {
         const response = await axios.get('/api/admin/logout');
-        console.log(response)
-    }
-
+        console.log(response);
+    };
 
     return (
-        <nav className="flex items-center  bg-[#f9f2d0] justify-between flex-wrap p-6">
+        <nav className="flex items-center bg-[#f9f2d0] justify-between flex-wrap p-6">
+
             <div className="flex items-center mr-6 lg:mr-72">
-                {!isOpen && <Image src="/image/alquran.png" width={400} height={200} alt="logo" className='absolute shadow-xl top-1 w-32 h-32' />}
+                {!isOpen && (
+                    <Image
+                        src="/image/alquran.png"
+                        width={100}
+                        height={50}
+                        alt="logo"
+                        className="absolute shadow-xl top-1 w-16 h-16 md:w-32 md:h-32"
+                    />
+                )}
             </div>
+
             <div className="block lg:hidden">
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex items-center px-3 py-2 rounded text-black-500 
-                    hover:text-black-400"
+                    className="flex items-center px-3 py-2 rounded text-black-500 hover:text-black-400"
                 >
                     <ol>
                         <li>
                             <AiOutlineMenu
-                                className={` text-black font-semibold text-lg
-                               hover:text-yelow-400 ${isOpen ? "hidden" : "block"
-                                    }`}
+                                className={`text-black font-semibold text-lg hover:text-yelow-400 ${isOpen ? "hidden" : "block"}`}
                             />
                         </li>
                         <li>
                             <AiFillCloseCircle
-                                className={` text-black font-semibold text-lg
-                                 hover:text-yellow-400 ${isOpen ? "block" : "hidden"
-                                    }`}
+                                className={`text-black font-semibold text-lg hover:text-yellow-400 ${isOpen ? "block" : "hidden"}`}
                             />
                         </li>
                     </ol>
                 </button>
             </div>
-            <div
-                className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"
-                    }`}
-            >
-                <div className='inline-flex  lg:flex-grow' >
+            
+            <div className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"}`}>
+                <div className={`inline-flex lg:flex-grow ${isOpen ? "flex-col" : ""}`}>
                     <List />
                 </div>
 
-                {!token && <Link href={'/admin/auth/'}>
-                    <ButtonUser props={'Login'} />
-                </Link>}
-
-                {token && <Link onClick={handleLogout} href={'/user/login'}>
-                    <ButtonUser props={'Logout'} />
-                </Link>}
-
+                {!token && <Link href={'/admin/auth/'}><ButtonUser props={'Login'} /></Link>}
+                {token && <Link onClick={handleLogout} href={'/user/login'}><ButtonUser props={'Logout'} /></Link>}
             </div>
-        </nav >
+        </nav>
     );
 }
 
-export default Navbar
+export default Navbar;
