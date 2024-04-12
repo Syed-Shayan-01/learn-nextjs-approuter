@@ -53,7 +53,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="flex justify-between items-center mt-8">
-                    <span className="text-sm lg:text-base text-[#f7ae24] dark:text-yellow-300">© 2024 <a href="https://syed-shayan.vercel.app/">Syed Shayan™</a>. All Rights Reserved.</span>
+                    <span className="text-sm lg:text-base text-[#f7ae24] dark:text-yellow-300">© 2024 <Link href="https://syed-shayan.vercel.app/" className="text-yellow-300">Al-Quran Academy™</Link>. All Rights Reserved.</span>
                     <div className="flex space-x-3">
                         <Link href="https://www.facebook.com/syed.shayanDev/" className="hover:text-black dark:hover:text-white">
                             <FaFacebookF />
