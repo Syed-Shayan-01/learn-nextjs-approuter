@@ -40,6 +40,7 @@ const BlogPage = () => {
         <>
             <Navbar />
             <PageName pageNameText={'Islamic Blogs List'} />
+            {blogs.length === 0 && (<div className=" text-center text-2xl">This blog page updated in a few days,ALquran Academy you provide Deeni Masail in this page</div>)}
             <div className="  py-10">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
