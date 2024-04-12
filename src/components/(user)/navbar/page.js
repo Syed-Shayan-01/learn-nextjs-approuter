@@ -13,7 +13,6 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         const response = await axios.get('/api/admin/logout');
-        console.log(response);
     };
 
     return (

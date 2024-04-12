@@ -10,7 +10,7 @@ import { CldUploadWidget } from 'next-cloudinary';
 
 const ImageUploadPageAdmin = () => {
   const [image, setImage] = useState('');
-
+  const [Category, setCategory] = useState('')
   const handleImageUpload = async (result, { widget }) => {
     setImage(result?.info?.url);
     widget.close();
@@ -42,7 +42,7 @@ const ImageUploadPageAdmin = () => {
 
     try {
       // Send the image URL to the server using Axios to save it in MongoDB
-      const response = await axios.post('/api/admin/imageUpload', { imageUrl: image });
+      const response = await axios.post('/api/admin/imageUpload', { imageUrl: image, ImageCategory: Category });
       if (response.status === 200) {
 
         Toastify({
@@ -61,7 +61,8 @@ const ImageUploadPageAdmin = () => {
             width: "20rem"
           },
         }).showToast()
-
+        setImage("");
+        setCategory("");
       } else {
         throw new Error('Server error!');
       }
@@ -107,11 +108,22 @@ const ImageUploadPageAdmin = () => {
             >
               Category Name
             </label>
-            <input
-              className="flex h-8 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-htmlForeground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              id="name"
-              placeholder="E.g. Summer 2023"
-            />
+            <select
+              className=' border-[2px] rounded-md my-2 border-yellow-500 p-2 hover:border-yellow-400'
+              name='imagesCategory'
+              id="imagesCategory"
+              value={Category}
+              onChange={(e) => {
+                setCategory(e.target.value);
+                console.log(e.target.value); // Log the updated value directly from event
+              }}
+            >
+              <option value="" className='text-center'>Select Category</option>
+              <option value="Event">Event</option>
+              <option value="Mehfil">Mahfil</option>
+              <option value="Taraweh">Taraweh</option>
+              <option value="Madarsa">Madarsa</option>
+            </select>
           </div>
           <div className="flex flex-col gap-2 min-h-[200px]">
             <CldUploadWidget
